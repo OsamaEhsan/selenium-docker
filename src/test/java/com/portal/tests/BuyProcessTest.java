@@ -1,8 +1,8 @@
-package com.deichmann.tests;
+package com.portal.tests;
 
-import com.deichmann.pages.*;
+
+import com.portal.pages.*;
 import com.tests.BaseTest;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;

@@ -53,16 +53,16 @@ at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.java:
 ... Removed 23 stack frames]]>
     </failure>
   </testcase> <!-- @BeforeTest setupDriver -->
-  <testcase classname="com.deichmann.tests.BuyProcessTest" name="@BeforeTest setupParameters" time="-1.595538831685E9">
+  <testcase classname="BuyProcessTest" name="@BeforeTest setupParameters" time="-1.595538831685E9">
     <skipped/>
   </testcase> <!-- @BeforeTest setupParameters -->
   <testcase classname="com.tests.BaseTest" name="@AfterTest quitBrowser" time="-1.595538831702E9">
     <skipped/>
   </testcase> <!-- @AfterTest quitBrowser -->
-  <testcase classname="com.deichmann.tests.BuyProcessTest" name="loginPageTest" time="0.0">
+  <testcase classname="BuyProcessTest" name="loginPageTest" time="0.0">
     <skipped/>
   </testcase> <!-- loginPageTest -->
-  <testcase classname="com.deichmann.tests.BuyProcessTest" name="herrenArtikelPage" time="0.0">
+  <testcase classname="BuyProcessTest" name="herrenArtikelPage" time="0.0">
     <skipped/>
   </testcase> <!-- herrenArtikelPage -->
 </testsuite> <!-- BuyProcessTest -->

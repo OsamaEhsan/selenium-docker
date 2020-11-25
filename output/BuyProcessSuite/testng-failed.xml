@@ -6,7 +6,7 @@
   <parameter name="passwordInput" value="2019ciasoM"/>
   <test thread-count="5" name="BuyProcessTest(failed)">
     <classes>
-      <class name="com.deichmann.tests.BuyProcessTest">
+      <class name="BuyProcessTest">
         <methods>
           <include name="quitBrowser"/>
           <include name="setupDriver"/>
@@ -14,7 +14,7 @@
           <include name="herrenArtikelPage"/>
           <include name="loginPageTest"/>
         </methods>
-      </class> <!-- com.deichmann.tests.BuyProcessTest -->
+      </class> <!-- BuyProcessTest -->
     </classes>
   </test> <!-- BuyProcessTest(failed) -->
 </suite> <!-- Failed suite [BuyProcessSuite] -->

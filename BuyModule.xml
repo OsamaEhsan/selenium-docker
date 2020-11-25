@@ -1,11 +1,11 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="BuyProcessSuite">
-    <parameter name="urlInput" value="https://www2.deichmann.com/de-de/herren/c-m?sale=ja"/>
+    <parameter name="urlInput" value="https://www2.portal.com/de-de/herren/c-m?sale=ja"/>
     <parameter name="usernameInput" value="deichmann"/>
     <parameter name="passwordInput" value="2019ciasoM"/>
     <test name="BuyProcessTest">
         <classes>
-            <class name="com.deichmann.tests.BuyProcessTest"></class>
+            <class name="BuyProcessTest"></class>
         </classes>
     </test>
 </suite>

@@ -6,8 +6,8 @@
     <groups>
     </groups>
     <test started-at="2020-07-23T21:13:51 GMT" name="BuyProcessTest" finished-at="2020-07-23T21:13:51 GMT" duration-ms="492">
-      <class name="com.deichmann.tests.BuyProcessTest">
-        <test-method is-config="true" signature="setupDriver(org.testng.ITestContext)[pri:0, instance:com.deichmann.tests.BuyProcessTest@612fc6eb]" started-at="2020-07-23T21:13:51 GMT" name="setupDriver" finished-at="2020-07-23T21:13:51 GMT" duration-ms="472" status="FAIL">
+      <class name="BuyProcessTest">
+        <test-method is-config="true" signature="setupDriver(org.testng.ITestContext)[pri:0, instance:BuyProcessTest@612fc6eb]" started-at="2020-07-23T21:13:51 GMT" name="setupDriver" finished-at="2020-07-23T21:13:51 GMT" duration-ms="472" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -96,11 +96,11 @@ at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.java:
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupDriver -->
-        <test-method is-config="true" signature="setupParameters(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.deichmann.tests.BuyProcessTest@612fc6eb]" started-at="2020-07-23T21:13:51 GMT" name="setupParameters" finished-at="1970-01-01T00:00:00 GMT" depends-on-methods="com.tests.BaseTest.setupDriver" duration-ms="-1595538831685" status="SKIP">
+        <test-method is-config="true" signature="setupParameters(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:BuyProcessTest@612fc6eb]" started-at="2020-07-23T21:13:51 GMT" name="setupParameters" finished-at="1970-01-01T00:00:00 GMT" depends-on-methods="com.tests.BaseTest.setupDriver" duration-ms="-1595538831685" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupParameters -->
-        <test-method signature="loginPageTest()[pri:0, instance:com.deichmann.tests.BuyProcessTest@612fc6eb]" started-at="2020-07-23T21:13:51 GMT" name="loginPageTest" finished-at="2020-07-23T21:13:51 GMT" duration-ms="0" status="SKIP">
+        <test-method signature="loginPageTest()[pri:0, instance:BuyProcessTest@612fc6eb]" started-at="2020-07-23T21:13:51 GMT" name="loginPageTest" finished-at="2020-07-23T21:13:51 GMT" duration-ms="0" status="SKIP">
           <exception class="org.openqa.selenium.remote.UnreachableBrowserException">
             <message>
               <![CDATA[Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
@@ -182,13 +182,13 @@ at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.java:
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginPageTest -->
-        <test-method signature="herrenArtikelPage()[pri:0, instance:com.deichmann.tests.BuyProcessTest@612fc6eb]" started-at="2020-07-23T21:13:51 GMT" name="herrenArtikelPage" finished-at="2020-07-23T21:13:51 GMT" depends-on-methods="com.deichmann.tests.BuyProcessTest.loginPageTest" duration-ms="0" status="SKIP">
+        <test-method signature="herrenArtikelPage()[pri:0, instance:BuyProcessTest@612fc6eb]" started-at="2020-07-23T21:13:51 GMT" name="herrenArtikelPage" finished-at="2020-07-23T21:13:51 GMT" depends-on-methods="BuyProcessTest.loginPageTest" duration-ms="0" status="SKIP">
           <exception class="java.lang.Throwable">
             <message>
-              <![CDATA[Method BuyProcessTest.herrenArtikelPage()[pri:0, instance:com.deichmann.tests.BuyProcessTest@612fc6eb] depends on not successfully finished methods]]>
+              <![CDATA[Method BuyProcessTest.herrenArtikelPage()[pri:0, instance:BuyProcessTest@612fc6eb] depends on not successfully finished methods]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method BuyProcessTest.herrenArtikelPage()[pri:0, instance:com.deichmann.tests.BuyProcessTest@612fc6eb] depends on not successfully finished methods
+              <![CDATA[java.lang.Throwable: Method BuyProcessTest.herrenArtikelPage()[pri:0, instance:BuyProcessTest@612fc6eb] depends on not successfully finished methods
 at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:101)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -213,11 +213,11 @@ at org.testng.TestNG.main(TestNG.java:1304)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- herrenArtikelPage -->
-        <test-method is-config="true" signature="quitBrowser()[pri:0, instance:com.deichmann.tests.BuyProcessTest@612fc6eb]" started-at="2020-07-23T21:13:51 GMT" name="quitBrowser" finished-at="1970-01-01T00:00:00 GMT" duration-ms="-1595538831702" status="SKIP">
+        <test-method is-config="true" signature="quitBrowser()[pri:0, instance:BuyProcessTest@612fc6eb]" started-at="2020-07-23T21:13:51 GMT" name="quitBrowser" finished-at="1970-01-01T00:00:00 GMT" duration-ms="-1595538831702" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitBrowser -->
-      </class> <!-- com.deichmann.tests.BuyProcessTest -->
+      </class> <!-- BuyProcessTest -->
     </test> <!-- BuyProcessTest -->
   </suite> <!-- BuyProcessSuite -->
 </testng-results>

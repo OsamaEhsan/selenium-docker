@@ -1,4 +1,4 @@
-package com.deichmann.pages;
+package com.portal.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
