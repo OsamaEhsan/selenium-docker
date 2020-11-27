@@ -33,7 +33,7 @@ public class LoginPage {
     public void goTo(String url)
     {
         driver.get(url);
-        this.wait.until(ExpectedConditions.visibilityOf(this.usernameTxt));
+        //this.wait.until(ExpectedConditions.visibilityOf(this.usernameTxt));
         driver.manage().window().maximize();
     }
 

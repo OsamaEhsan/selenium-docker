@@ -10,7 +10,7 @@ import java.lang.Thread;
 
 import java.util.concurrent.TimeUnit;
 
-public class BuyProcessTest extends BaseTest
+public class BuyProcessTest2 extends BaseTest
 
 {
 
@@ -19,12 +19,10 @@ public class BuyProcessTest extends BaseTest
     private String passwordInput;
 
     @BeforeTest
-    @Parameters({"urlInput", "usernameInput", "passwordInput"})
-    public void setupParameters(String urlInput, String usernameInput, String passwordInput)
+    @Parameters({"urlInput"})
+    public void setupParameters(String urlInput)
     {
         this.urlInput = urlInput;
-        this.usernameInput = usernameInput;
-        this.passwordInput = passwordInput;
     }
 
     @Test
@@ -34,11 +32,8 @@ public class BuyProcessTest extends BaseTest
 
         Thread.sleep(2000);
 
-        loginPage.enterCredentials(usernameInput, passwordInput);
-        loginPage.submit();
-
-        Thread.sleep(2000);
     }
+
 
     @Test(dependsOnMethods = "loginPageTest")
     public void herrenArtikelPageTest() throws InterruptedException {
@@ -74,11 +69,50 @@ public class BuyProcessTest extends BaseTest
     @Test(dependsOnMethods = "checkOutLoginPageTest")
     public void checkOutNewAdressPageTest() throws InterruptedException {
         CheckoutNewAddressPage checkoutNewAddressPage = new CheckoutNewAddressPage(driver);
-        Thread.sleep(20000);
         checkoutNewAddressPage.setWunschadresse();
         checkoutNewAddressPage.setVorname();
         checkoutNewAddressPage.setNachname();
+        checkoutNewAddressPage.setEmail();
+        checkoutNewAddressPage.setStrasse();
+        checkoutNewAddressPage.setHausnummer();
+        checkoutNewAddressPage.setPostleitzahl();
         checkoutNewAddressPage.setStadt();
+       // checkoutNewAddressPage.setDatenschutzbestimmung();
+        checkoutNewAddressPage.setKundenKontoAnlegen();
+        checkoutNewAddressPage.setContinuetodelivery();
+
+    }
+
+        @Test(dependsOnMethods = "checkOutNewAdressPageTest")
+        public void versandArtPageTest() throws InterruptedException {
+            VersandArtPage versandArtPage = new VersandArtPage(driver);
+            Thread.sleep(2000);
+
+            versandArtPage.setDhl();
+            versandArtPage.setVersandArtVerwenden();
+
+        }
+
+        @Test(dependsOnMethods = "versandArtPageTest")
+        public void zahlungsMethodePageTest() throws InterruptedException {
+            ZahlungsMethodePage zahlungsMethodePage = new ZahlungsMethodePage(driver);
+            Thread.sleep(2000);
+
+            zahlungsMethodePage.setPaypal();
+            zahlungsMethodePage.setZahlungsMethodeVerwenden();
+
+        }
+
+        @Test(dependsOnMethods = "zahlungsMethodePageTest")
+        public void uebersichtPageTest() throws InterruptedException {
+            UebersichtPage uebersichtPage = new UebersichtPage(driver);
+            Thread.sleep(2000);
+
+            uebersichtPage.setBestellen();
+
+        }
+
+
 
 
     }
@@ -89,5 +123,3 @@ public class BuyProcessTest extends BaseTest
 
 
 
-
-}
