@@ -1,3 +1,4 @@
+/*
 package com.tests;
 
 import org.openqa.selenium.WebDriver;
@@ -11,10 +12,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class BaseTest {
-    protected WebDriver driver;
+   protected WebDriver driver;
 
-    @BeforeTest
-    public void setupDriver(ITestContext ctx) throws MalformedURLException {
+  //  @BeforeTest
+*/
+/*    public void setupDriver(ITestContext ctx) throws MalformedURLException {
         // BROWSER => chrome / firefox
         // HUB_HOST => localhost / 10.0.1.1.3 / hostname
 
@@ -35,13 +37,16 @@ public class BaseTest {
         dc.setCapability("name", testName);
         this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
 
+    }*//*
 
-    }
 
-    @AfterTest
-    public void quitBrowser() {
+   // @AfterTest
+*/
+/*    public void quitBrowser() {
         this.driver.quit();
-    }
+    }*//*
+
 
 
 }
+*/

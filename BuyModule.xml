@@ -5,7 +5,7 @@
     <parameter name="passwordInput" value="2019ciasoM"/>
     <test name="BuyProcessTest">
         <classes>
-            <class name="com.portal.tests.BuyProcessTest2"></class>
+            <class name="com.portal.scripts.BuyProcessTest2"></class>
         </classes>
     </test>
 </suite>
