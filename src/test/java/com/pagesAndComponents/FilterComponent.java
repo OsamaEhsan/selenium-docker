@@ -14,6 +14,8 @@ public class FilterComponent extends DriverHelper {
     private WebDriver driver;
     private WebDriverWait wait;
 
+    //Elements
+
     @FindBy(xpath = "//*[@type='submit']")
     private WebElement bestellen;
 
@@ -24,135 +26,182 @@ public class FilterComponent extends DriverHelper {
     private WebElement btnFilter;
 
     @FindBy(xpath = "//input[@id='relevance']/parent::summary")
-    private WebElement dpRelevance;
+    private WebElement filterSortierenRelevanz;
 
     @FindBy(xpath = "(//label[contains(text(),' Preis (aufsteigend) ')])[2]")
-    private WebElement valueRelevance;
+    private WebElement filterSortierenPreisAufsteigend;
 
     @FindBy(xpath = "//span[contains(text(),' Größe ')]")
-    private WebElement btnsize;
+    private WebElement filterGroesse;
 
     @FindBy(xpath = "//input[@id='list-facet-sizeEU-17.0']/parent::li")
-    private WebElement chkSize;
+    private WebElement groesseEUSiebzhen;
 
     @FindBy(xpath = "(//span[@data-key='core.component.facets.save'])[1]")
-    private WebElement backarrowsize;
+    private WebElement filterGroesseBackArrow;
 
     @FindBy(xpath = "//input[@id='max-price']")
-    private WebElement txtmaxprice;
+    private WebElement filterGroesseMaxPreis;
 
     @FindBy(xpath = "//label[@for='Schwarz']")
-    private WebElement color1;
+    private WebElement filterFarbe1;
 
     @FindBy(xpath = "//label[@for='Grau']")
-    private WebElement color2;
+    private WebElement filterFarbe2;
 
     @FindBy(xpath = "//span[contains(text(),' Marke ')]")
-    private WebElement btnBrand;
+    private WebElement filterBrand;
 
     @FindBy(xpath = "//p[contains(text(),' Nike ')]")
-    private WebElement optionBrand;
+    private WebElement filterBrandNike;
 
     @FindBy(xpath = "(//span[@data-key='core.component.facets.save'])[2]")
-    private WebElement btnSave;
+    private WebElement saveFilterBrand;
 
     @FindBy(xpath = "//span[contains(text(),' Geschlecht ')]")
-    private WebElement btntype;
+    private WebElement filterGeschlescht;
 
     @FindBy(xpath = "//p[contains(text(),' männlich ')]")
-    private WebElement optiontype;
+    private WebElement filterGeschleschtMaennlich;
 
     @FindBy(xpath = "(//span[@data-key='core.component.facets.save'])[3]")
-    private WebElement backarrowtype;
+    private WebElement filterGeschleschtBackarrow;
 
     @FindBy(xpath = "//label[@data-key='core.component.searchPageTemplate.show-results']")
-    private WebElement bntshowResult;
+    private WebElement filterErgebnisseAnzeigen;
 
+
+
+    //Set driver
 
     public FilterComponent(WebDriver driver) {
         super(driver);
     }
 
-    public void setBestellen()
+
+    //Methods
+
+    public FilterComponent setBestellen()
     {
         this.wait.until(ExpectedConditions.visibilityOf(this.bestellen));
         this.bestellen.click();
-
+        return PageFactory.initElements(getWebDriver(), FilterComponent.class);
     }
 
-    public FilterComponent FilterSearches() throws InterruptedException {
-
-        this.wait.until(ExpectedConditions.visibilityOf(btnFilter));
+    public FilterComponent clickOnFilter()
+    {
         btnFilter.click();
-        this.wait.until(ExpectedConditions.visibilityOf(dpRelevance));
-        dpRelevance.click();
-        this.wait.until(ExpectedConditions.visibilityOf(valueRelevance));
-        valueRelevance.click();
-        System.out.println("Sort by Price selected");
-        this.wait.until(ExpectedConditions.visibilityOf(btnsize));
-        btnsize.click();
+        return PageFactory.initElements(getWebDriver(), FilterComponent.class);
+    }
+
+    public FilterComponent clickOnFilterSortierenBeiRelevanz()
+    {
+        filterSortierenRelevanz.click();
+        return PageFactory.initElements(getWebDriver(), FilterComponent.class);
+    }
+
+    public FilterComponent clickOnFilterSortierenBeiPreisAufsteigend() throws InterruptedException {
+        filterSortierenPreisAufsteigend.click();
+        System.out.println("Sort by Price Aufsteigend selected");
         Thread.sleep(3000);
-        this.wait.until(ExpectedConditions.visibilityOf(chkSize));
-        chkSize.click();
-        Thread.sleep(5000);
-        this.wait.until(ExpectedConditions.visibilityOf(backarrowsize));
-        backarrowsize.click();
-        System.out.println("Filter by Size ");
-        this.wait.until(ExpectedConditions.visibilityOf(txtmaxprice));
-        txtmaxprice.clear();
-        txtmaxprice.sendKeys("50"+ Keys.TAB);
-        System.out.println("Filter by max price ");
-        this.wait.until(ExpectedConditions.visibilityOf(color1));
+        return PageFactory.initElements(getWebDriver(), FilterComponent.class);
+    }
+
+    public FilterComponent clickOnFilterGroesse() throws InterruptedException {
+       // this.wait.until(ExpectedConditions.visibilityOf(filterGroesse));
+        filterGroesse.click();
         Thread.sleep(3000);
-        color1.click();
-        Thread.sleep(3000);
-        color2.click();
-        System.out.println("Filter by color : Schwarz and Weiß");
-        btnBrand.click();
-        Thread.sleep(3000);
-        this.wait.until(ExpectedConditions.visibilityOf(optionBrand));
-        optionBrand.click();
-        System.out.println("Filter by Brand ");
-        btnSave.click();
-        this.wait.until(ExpectedConditions.visibilityOf(btntype));
-        btntype.click();
-        Thread.sleep(3000);
-        this.wait.until(ExpectedConditions.visibilityOf(optiontype));
-        optiontype.click();
-        backarrowtype.click();
-        System.out.println("Filter by type");
-        this.wait.until(ExpectedConditions.visibilityOf(bntshowResult));
-        bntshowResult.click();
+        return PageFactory.initElements(getWebDriver(), FilterComponent.class);
+    }
+
+    public FilterComponent chooseOnFilterGroesseSiebzhenEU() throws InterruptedException {
+        //this.wait.until(ExpectedConditions.visibilityOf(groesseEUSiebzhen));
+        groesseEUSiebzhen.click();
         Thread.sleep(5000);
         return PageFactory.initElements(getWebDriver(), FilterComponent.class);
-
-
     }
 
-    @FindBy(xpath = "(//span[contains(text(),'Farben: Schwarz')])")
-    private WebElement clr1;
-
-    @FindBy(xpath = "(//span[contains(text(),'Farben: Grau')])")
-    private WebElement clr2;
-
-    @FindBy(xpath = "(//span[contains(text(),'Marke: Nike')])")
-    private WebElement brand;
-
-    @FindBy(xpath = "(//span[contains(text(),'Geschlecht: männlich')])")
-    private WebElement type;
-
-    public boolean isAllFilterdDisplayed() {
-
-        if(clr1.isDisplayed() && clr2.isDisplayed() && brand.isDisplayed() && type.isDisplayed())
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-
+    public FilterComponent clickOnFilterGroesseBackArrow()
+    {
+        //this.wait.until(ExpectedConditions.visibilityOf(filterGroesseBackArrow));
+        filterGroesseBackArrow.click();
+        System.out.println("Filtered by Size ");
+        return PageFactory.initElements(getWebDriver(), FilterComponent.class);
     }
+
+    public FilterComponent clickOnFilterGroesseMaxPreisFuenfzig()
+    {
+        //this.wait.until(ExpectedConditions.visibilityOf(filterGroesseMaxPreis));
+        filterGroesseMaxPreis.clear();
+        filterGroesseMaxPreis.sendKeys("50"+ Keys.TAB);
+        System.out.println("Filter by max price ");
+        return PageFactory.initElements(getWebDriver(), FilterComponent.class);
+    }
+
+    public FilterComponent clickOnFilterFarbeWeiss() throws InterruptedException {
+       // this.wait.until(ExpectedConditions.visibilityOf(filterFarbe1));
+        Thread.sleep(3000);
+        filterFarbe1.click();
+        System.out.println("Filter by color : Weiß");
+        return PageFactory.initElements(getWebDriver(), FilterComponent.class);
+    }
+
+    public FilterComponent clickOnFilterFarbeSchwarz() throws InterruptedException {
+        //this.wait.until(ExpectedConditions.visibilityOf(filterFarbe2));
+        Thread.sleep(3000);
+        filterFarbe2.click();
+        System.out.println("Filter by color : Schwarz");
+        return PageFactory.initElements(getWebDriver(), FilterComponent.class);
+    }
+
+    public FilterComponent clickOnFilterBrand() throws InterruptedException {
+        filterBrand.click();
+        Thread.sleep(3000);
+        return PageFactory.initElements(getWebDriver(), FilterComponent.class);
+    }
+
+    public FilterComponent chooseFilterBrandNike() throws InterruptedException {
+        //this.wait.until(ExpectedConditions.visibilityOf(filterBrandNike));
+        filterBrandNike.click();
+        Thread.sleep(3000);
+        System.out.println("Filter by Brand Nike");
+        return PageFactory.initElements(getWebDriver(), FilterComponent.class);
+    }
+
+    public FilterComponent saveFilterBrand() throws InterruptedException {
+        saveFilterBrand.click();
+        return PageFactory.initElements(getWebDriver(), FilterComponent.class);
+    }
+
+    public FilterComponent clickOnFilterGeschlescht() throws InterruptedException {
+        //this.wait.until(ExpectedConditions.visibilityOf(filterGeschlescht));
+        filterGeschlescht.click();
+        Thread.sleep(3000);
+        return PageFactory.initElements(getWebDriver(), FilterComponent.class);
+    }
+
+    public FilterComponent chooseOnFilterGeschleschtMaennlich() throws InterruptedException {
+        //this.wait.until(ExpectedConditions.visibilityOf(filterGeschleschtMaennlich));
+        filterGeschleschtMaennlich.click();
+        return PageFactory.initElements(getWebDriver(), FilterComponent.class);
+    }
+
+    public FilterComponent clickOnFilterGeschleschtBackarrow() throws InterruptedException {
+        filterGeschleschtBackarrow.click();
+        System.out.println("Filter by Geschlescht Männlich");
+        return PageFactory.initElements(getWebDriver(), FilterComponent.class);
+    }
+
+    public FilterComponent clickOnFilterErgebnisseAnzeigen() throws InterruptedException {
+       // this.wait.until(ExpectedConditions.visibilityOf(filterErgebnisseAnzeigen));
+        filterErgebnisseAnzeigen.click();
+        Thread.sleep(5000);
+        return PageFactory.initElements(getWebDriver(), FilterComponent.class);
+    }
+
+
+
+
 
 
 

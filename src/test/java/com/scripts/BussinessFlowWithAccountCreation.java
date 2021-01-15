@@ -1,11 +1,10 @@
 package com.scripts;
 
-import com.pagesAndComponents.FilterComponent;
 import com.utils.DriverTestCase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class BussinessFlow extends DriverTestCase {
+public class BussinessFlowWithAccountCreation extends DriverTestCase {
     String loginUserName;
     String loginPassword;
     String eduFirstName;
@@ -98,8 +97,26 @@ public class BussinessFlow extends DriverTestCase {
     @Test(dependsOnMethods = "searchTest")
     public void checkFilters() throws InterruptedException {
 
-        filterComponent.FilterSearches();
-        boolean filterddone=filterComponent.isAllFilterdDisplayed();
+        filterComponent.clickOnFilter();
+        filterComponent.clickOnFilterSortierenBeiRelevanz();
+        filterComponent.clickOnFilterSortierenBeiPreisAufsteigend();
+        Thread.sleep(3000);
+        filterComponent.clickOnFilterGroesse();
+        filterComponent.chooseOnFilterGroesseSiebzhenEU();
+        filterComponent.clickOnFilterGroesseBackArrow();
+        filterComponent.clickOnFilterGroesseMaxPreisFuenfzig();
+        filterComponent.clickOnFilterFarbeWeiss();
+        filterComponent.clickOnFilterFarbeSchwarz();
+        filterComponent.clickOnFilterBrand();
+        filterComponent.chooseFilterBrandNike();
+        filterComponent.saveFilterBrand();
+        filterComponent.clickOnFilterGeschlescht();
+        filterComponent.chooseOnFilterGeschleschtMaennlich();
+        filterComponent.clickOnFilterGeschleschtBackarrow();
+        filterComponent.clickOnFilterErgebnisseAnzeigen();
+
+
+        boolean filterddone=productListPage.isAllFilterdDisplayed();
         Assert.assertTrue(filterddone, "All filterd not displayed successfully");
         System.out.println("All Filterd are displayed successfully after applied");
 
