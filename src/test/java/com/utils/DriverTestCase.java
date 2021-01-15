@@ -5,37 +5,34 @@
 
 package com.utils;
 
-import com.pages.HomePage;
-import com.pages.LoginPage;
-import com.pages.ProductListPage;
+import com.pagesAndComponents.*;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import java.net.MalformedURLException;
-import java.net.URL;
-
 
 
 public abstract class DriverTestCase {
     public PropertyReader propertyReader;
     public LoginPage loginPage;
-    public HomePage homepage;
+    public HomePage homePage;
     public ProductListPage productListPage;
-    private WebDriver driver;
+    public RegistrationPage registrationPage;
+    public FilterComponent filterComponent;
+
+
+    public WebDriver driver;
+
 
 
 
@@ -78,8 +75,10 @@ public abstract class DriverTestCase {
 
 
         loginPage = PageFactory.initElements(driver,LoginPage.class);
-        homepage= PageFactory.initElements(driver,HomePage.class);
+        homePage= PageFactory.initElements(driver,HomePage.class);
         productListPage= PageFactory.initElements(driver,ProductListPage.class);
+        registrationPage= PageFactory.initElements(driver,RegistrationPage.class);
+        filterComponent= PageFactory.initElements(driver,FilterComponent.class);
     }
 
     @AfterClass

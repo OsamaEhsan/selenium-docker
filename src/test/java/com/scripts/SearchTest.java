@@ -23,14 +23,14 @@ public class SearchTest extends DriverTestCase {
         loginPage = loginPage.loginIntoApplication(loginUserName, loginPassword);
 
         // enter search keyword in search text bar
-        homepage = homepage.enterSearchKeyword(searchKeyword);
+        homePage = homePage.enterSearchKeyword(searchKeyword);
 
         //click on search icon
-        homepage = homepage.clickOnSearchIcon();
+        homePage = homePage.clickOnSearchIcon();
 
-        String searchResultMeg = homepage.getSearchShirtMessage();
+        String searchResultMeg = homePage.getSearchShirtMessage();
 
-        String searchResult = homepage.getSearchShirtResult();
+        String searchResult = homePage.getSearchShirtResult();
 
         //after searching shirt keyword, in result Search shirt should be shown at top of PLP
         Assert.assertTrue(searchResultMeg.contains(shirtSearchMessage),"Searching shirt should be displayed message at top");

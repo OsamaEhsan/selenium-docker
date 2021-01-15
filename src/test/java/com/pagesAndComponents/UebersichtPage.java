@@ -1,4 +1,4 @@
-package com.pages;
+package com.pagesAndComponents;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,18 +7,15 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class VersandArtPage {
+public class UebersichtPage {
 
     private WebDriver driver;
     private WebDriverWait wait;
 
-    @FindBy(xpath = "//*[@class='card']")
-    private WebElement dhl;
-
     @FindBy(xpath = "//*[@type='submit']")
-    private WebElement versandArtVerwenden;
+    private WebElement bestellen;
 
-    public VersandArtPage(WebDriver driver)
+    public UebersichtPage(WebDriver driver)
     {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 10);
@@ -26,22 +23,12 @@ public class VersandArtPage {
 
     }
 
-    public void setDhl()
+    public void setBestellen()
     {
-        this.wait.until(ExpectedConditions.visibilityOf(this.dhl));
-        this.dhl.click();
+        this.wait.until(ExpectedConditions.visibilityOf(this.bestellen));
+        this.bestellen.click();
 
     }
-
-    public void setVersandArtVerwenden()
-    {
-        this.wait.until(ExpectedConditions.visibilityOf(this.versandArtVerwenden));
-        this.versandArtVerwenden.click();
-
-    }
-
-
-
 
 
 }

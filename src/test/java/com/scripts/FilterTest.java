@@ -27,10 +27,10 @@ public class FilterTest extends DriverTestCase {
         loginPage.clickOnCookiesOkayButton();
 
         // enter search keyword in search text bar
-        homepage = homepage.enterSearchKeyword(searchKeyword);
+        homePage = homePage.enterSearchKeyword(searchKeyword);
 
         // click on search icon
-        homepage = homepage.clickOnSearchIcon();
+        homePage = homePage.clickOnSearchIcon();
 
         // click on filter button
         productListPage.clickOnFilterButton();

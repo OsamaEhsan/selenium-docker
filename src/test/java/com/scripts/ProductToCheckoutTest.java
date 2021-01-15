@@ -26,25 +26,25 @@ public class ProductToCheckoutTest extends DriverTestCase {
         loginPage.clickOnCookiesOkayButton();
 
         // mouse hover on shoes sub menu
-        homepage = homepage.mouseHoverOnShoesSubMenu();
+        homePage = homePage.mouseHoverOnShoesSubMenu();
 
         // click on Tie boot under shoes sub menu
-        homepage = homepage.clickOnTieBootLink();
+        homePage = homePage.clickOnTieBootLink();
 
         // click on first shoe at PLP page
-        homepage = homepage.clickOnFirstShoeImage();
+        homePage = homePage.clickOnFirstShoeImage();
 
         // choose the boot size
-        homepage = homepage.clickOnChooseSize();
+        homePage = homePage.clickOnChooseSize();
 
         // select the size of product
-        homepage = homepage.selectFirstShoeSize();
+        homePage = homePage.selectFirstShoeSize();
 
         // click on add to cart
-        homepage = homepage.clickOnAddToCart();
+        homePage = homePage.clickOnAddToCart();
 
         // click on checkout button
-        homepage = homepage.clickOnSafelyCheckoutButton();
+        homePage = homePage.clickOnSafelyCheckoutButton();
 
         // Logout from application
         //loginPage.signOutFromApplication();
