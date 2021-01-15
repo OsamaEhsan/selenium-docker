@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.utils.DriverHelper;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ProductListPage extends DriverHelper {
 
@@ -46,6 +47,23 @@ public class ProductListPage extends DriverHelper {
 
     @FindBy(xpath = "(//input[@name='addToWhishlist']/following-sibling::button)[1]")
     private WebElement wunschListForSecondArtikel;
+
+    @FindBy(xpath = "(//article/a)[2]")
+    private WebElement SecondShoes;
+
+    @FindBy(xpath = "(//button[@type='submit' and text()='In den Warenkorb'])[1]")
+    private WebElement btnAddToCart;
+
+    @FindBy(xpath = "//span[@data-key='productDetailPage.component.productPageTemplate.setSize']")
+    private WebElement btnSelectSize;
+
+    @FindBy(xpath = "//span[text()=' 17 ']")
+    private WebElement ShoesSize;
+
+    @FindBy(xpath = "(//m-button[@data-key='core.component.miniCart.showCart'])[2]")
+    private WebElement btnShowCart;
+
+
 
 
     public ProductListPage(WebDriver driver) {
@@ -126,6 +144,19 @@ public class ProductListPage extends DriverHelper {
     {
         wunschListForFirstArtikel.click();
         System.out.println("First Shoes added to wishlist");
+        return PageFactory.initElements(getWebDriver(),ProductListPage.class);
+    }
+
+    public ProductListPage AddSecondShoesInCart()
+    {
+        SecondShoes.click();
+       // this.wait.until(ExpectedConditions.visibilityOf(btnAddToCart));
+        btnSelectSize.click();
+        ShoesSize.click();
+        btnAddToCart.click();
+        System.out.println("Second Shoes added to Cart");
+        this.wait.until(ExpectedConditions.visibilityOf(btnShowCart));
+        btnShowCart.click();
         return PageFactory.initElements(getWebDriver(),ProductListPage.class);
     }
 

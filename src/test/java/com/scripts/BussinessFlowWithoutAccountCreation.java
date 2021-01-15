@@ -59,7 +59,11 @@ public class BussinessFlowWithoutAccountCreation extends DriverTestCase {
 
     }
 
+    @Test(dependsOnMethods = "checkFilters")
+    public void AddSecondArtikelInCart() throws InterruptedException {
+        productListPage.AddSecondShoesInCart();
 
+    }
 
 
 
