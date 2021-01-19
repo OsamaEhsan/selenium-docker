@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -29,6 +30,7 @@ public abstract class DriverTestCase {
     public ProductListPage productListPage;
     public RegistrationPage registrationPage;
     public FilterComponent filterComponent;
+    public UserCheckout userCheckout;
 
 
     public WebDriver driver;
@@ -44,10 +46,11 @@ public abstract class DriverTestCase {
         // BROWSER => chrome / firefox
         // HUB_HOST => localhost / 10.0.1.1.3 / hostname
 
+
         propertyReader = new PropertyReader();
 
         String host = "localhost";
-        DesiredCapabilities dc = DesiredCapabilities.chrome();
+        DesiredCapabilities dc = DesiredCapabilities.firefox();
 
         if (System.getProperty("BROWSER") != null && System.getProperty("BROWSER").equalsIgnoreCase("firefox")) {
             dc = DesiredCapabilities.firefox();
@@ -56,14 +59,18 @@ public abstract class DriverTestCase {
         if (System.getProperty("HUB_HOST") != null) {
             host = System.getProperty("HUB_HOST");
         }
-
+        System.out.println(dc.getBrowserName());
         String testName = ctx.getCurrentXmlTest().getName();
-
+        System.out.println(testName);
         String completeUrl = "http://" + host + ":4444/wd/hub";
         dc.setCapability("name", testName);
-        this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
+        //this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
 
+        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe"); 
 
+        this.driver = new ChromeDriver();
+        //this.driver.get("https://www.google.com");
+        System.out.println(driver.getCurrentUrl());
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(45, TimeUnit.SECONDS);
@@ -79,6 +86,7 @@ public abstract class DriverTestCase {
         productListPage= PageFactory.initElements(driver,ProductListPage.class);
         registrationPage= PageFactory.initElements(driver,RegistrationPage.class);
         filterComponent= PageFactory.initElements(driver,FilterComponent.class);
+        userCheckout= PageFactory.initElements(driver,UserCheckout.class);
     }
 
     @AfterClass
